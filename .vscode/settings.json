@@ -1,0 +1,38 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/victor/ros2_ws/install/yolov8_template_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/yolov8_forklift_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/py_srvcli",
+        "/home/victor/ros2_ws/install/py_srvcli/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/build/py_pubsub",
+        "/home/victor/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/install/dwb_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/nav_2d_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/nav2_simple_commander",
+        "/home/victor/ros2_ws/install/nav2_simple_commander/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/install/nav2_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/nav2_common/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/my_package",
+        "/home/victor/ros2_ws/install/my_package/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/victor/ros2_ws/install/yolov8_template_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/yolov8_forklift_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/py_srvcli",
+        "/home/victor/ros2_ws/install/py_srvcli/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/build/py_pubsub",
+        "/home/victor/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/install/dwb_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/nav_2d_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/nav2_simple_commander",
+        "/home/victor/ros2_ws/install/nav2_simple_commander/lib/python3.10/site-packages",
+        "/home/victor/ros2_ws/install/nav2_msgs/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/install/nav2_common/local/lib/python3.10/dist-packages",
+        "/home/victor/ros2_ws/build/my_package",
+        "/home/victor/ros2_ws/install/my_package/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

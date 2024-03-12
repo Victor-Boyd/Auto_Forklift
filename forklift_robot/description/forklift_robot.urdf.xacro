@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="forklift_robot">
+
+    <!-- stuff here -->
+    <xacro:include filename="forklift_robot_core.xacro" />
+
+    <xacro:include filename="gazebo_control.xacro"/>
+
+</robot>

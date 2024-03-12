@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="forklift_robot_constants.xacro" />
+
+    <!--######################### Base link ##################################### -->
+
+    <link name="base_link">
+        <visual>
+        <origin xyz="-1.0795 -0.5334 0" rpy="0 0 0"/>
+        <!-- <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/> -->
+        <geometry>
+            <mesh filename="$(find forklift_robot)/description/meshes/base_link.dae" />
+            <!-- <box size="${base_length} ${base_width} ${base_height}"/> -->
+        </geometry>
+        <material name="orange">
+        </material>
+        </visual>
+
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 1.3716" /> <!-- 1.3716  make this the last digit if using mesh-->
+        <geometry>
+          <mesh filename="$(find forklift_robot)/description/meshes/base_link.dae" />
+            <!-- <box size="${base_length} ${base_width} ${base_height}"/> -->
+        </geometry>
+        </collision>
+
+        <inertial>
+        <mass value="500"/>
+        <inertia ixx="206" ixy="0" ixz="-23" iyy="389" iyz="0" izz="316"/>
+        </inertial>
+
+        
+    </link>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+    
+    <!-- ######################### Base Footprint ##################################### -->
+    <link name="base_footprint" />
+
+
+    <!-- ######################### Base joint ##################################### -->
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link" />
+        <origin xyz="0.0 0.0 ${(wheel_radius+wheel_zoff)}" rpy="0 0 0"/> <!-- ${(wheel_radius+wheel_zoff)} switch the last digit to this if using meshes -->
+    </joint>
+
+
+    <!-- #################### Fork ########################## -->
+      <link name="fork">
+    <visual>
+      <geometry>
+        <mesh filename="$(find forklift_robot)/description/meshes/fork.dae"/> 
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="$(find forklift_robot)/description/meshes/fork.dae"/> 
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.2" ixy="0" ixz="0" iyy="0.3" iyz="0" izz="0.4"/>
+    </inertial>
+  </link>
+
+  <joint name="base_to_fork" type="prismatic">
+    <parent link="base_link"/>
+    <child link="fork"/>
+    <limit 
+      lower="0" 
+      upper="2" 
+      velocity="0.1"
+      effort="100"
+    />
+    <origin xyz="1.0795 -0.3686 0.0"/>
+    <axis xyz="0 0 1"/>
+  </joint> 
+
+
+    <!-- ######################### Left side wheels ##################################### -->
+    <!-- <xacro:wheel prefix="drivewhl_l" x_reflect="-1" y_reflect="1" /> -->
+    <xacro:wheel prefix="drivewhl_fl" x_reflect="1" y_reflect="1" />
+    
+    <xacro:steerable_wheel prefix="drivewhl_l" x="-0.7502" y="0.5684" z="0.2032"/>
+
+    <!-- <joint name="drivewhl_l_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="drivewhl_l_link"/>
+        <limit 
+        velocity="10"
+        effort="1000"
+        />
+        <origin xyz="-0.7502 0.5684 0.2032"/>
+        <axis xyz="0 1 0"/>
+    </joint> -->
+
+
+
+    <joint name="drivewhl_fl_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="drivewhl_fl_link"/>
+        <limit 
+        velocity="10"
+        effort="1000"
+        />
+        <origin xyz="0.6722 0.5684 0.2032"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    
+  
+    <!-- ######################### Right side wheels #################################### -->
+    <!-- <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" /> -->
+    <xacro:wheel prefix="drivewhl_fr" x_reflect="1" y_reflect="-1" />
+    
+    <xacro:steerable_wheel prefix="drivewhl_r" x="-0.7502" y="-0.5684" z="0.2032"/>
+    
+    
+    <!-- <joint name="drivewhl_r_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="drivewhl_r_link"/>
+        <limit 
+        velocity="10"
+        effort="1000"
+        />
+        <origin xyz="-0.7502 -0.5684 0.2032"/>
+        <axis xyz="0 1 0"/>
+    </joint> -->
+    
+    <joint name="drivewhl_fr_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="drivewhl_fr_link"/>
+        <limit 
+        velocity="10"
+        effort="1000"
+        />
+        <origin xyz="0.6722 -0.5684 0.2032"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+</robot>
